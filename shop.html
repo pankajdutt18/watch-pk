@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the authentic timepiece collection at P. K. Watch Co. — Men's, Women's, Smartwatches, and Wall Clocks at our Ludhiana showroom.">
+  <title>Watch Catalogue &amp; Collections | P. K. WATCH CO.</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo/logo-symbol.svg">
+
+  <!-- Google Fonts: Playfair Display (Headings) & Inter (Body/UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 CDN for UI Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Core & Shop Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/shop.css">
+</head>
+<body data-page="shop">
+
+  <!-- Accessible Skip Navigation Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Shared Mount Points -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <!-- Main Catalogue Content -->
+  <main id="main-content" class="site-main">
+
+    <!-- Page Header & Breadcrumb Section -->
+    <header class="shop-hero-header">
+      <div class="container">
+        <!-- Breadcrumbs -->
+        <nav aria-label="Breadcrumb" id="shop-breadcrumbs" class="shop-breadcrumbs">
+          <span class="breadcrumb-item"><a href="index.html">Home</a></span>
+          <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+          <span class="breadcrumb-item active">Shop</span>
+        </nav>
+
+        <h1 class="shop-page-title">Explore Our Collection</h1>
+        <p class="shop-page-desc">
+          Discover watches and timepieces for different styles, occasions, and preferences. 
+          Browse our curated multi-brand portfolio representing authorized collections at our Ludhiana showroom.
+        </p>
+      </div>
+    </header>
+
+    <!-- Catalogue Main Layout Section -->
+    <section class="shop-layout-section" aria-label="Product Catalogue">
+      <div class="container">
+        <div class="shop-layout-grid">
+
+          <!-- ================================================================
+               LEFT COLUMN: DESKTOP FILTER SIDEBAR
+               ================================================================ -->
+          <aside class="filter-sidebar" aria-label="Filter Options">
+            <div class="sidebar-header">
+              <span class="sidebar-title">
+                <i class="fa-solid fa-sliders"></i>
+                Filters
+              </span>
+              <button type="button" class="btn-clear-all sidebar-clear-all-btn">
+                Clear All
+              </button>
+            </div>
+
+            <!-- Group 1: Category Filter -->
+            <div class="filter-group">
+              <div class="filter-group-header">Category</div>
+              <div class="filter-options-list">
+                <label class="filter-checkbox-label">
+                  <span class="filter-checkbox-left">
+                    <input type="radio" name="category-filter" value="all" checked>
+                    <span>All Timepieces</span>
+                  </span>
+                  <span class="filter-count">(20)</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <span class="filter-checkbox-left">
+                    <input type="radio" name="category-filter" value="mens">
+                    <span>Men's Watches</span>
+                  </span>
+                  <span class="filter-count">(8)</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <span class="filter-checkbox-left">
+                    <input type="radio" name="category-filter" value="womens">
+                    <span>Women's Watches</span>
+                  </span>
+                  <span class="filter-count">(5)</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <span class="filter-checkbox-left">
+                    <input type="radio" name="category-filter" value="smartwatches">
+                    <span>Smartwatches</span>
+                  </span>
+                  <span class="filter-count">(4)</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <span class="filter-checkbox-left">
+                    <input type="radio" name="category-filter" value="clocks">
+                    <span>Clocks</span>
+                  </span>
+                  <span class="filter-count">(3)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Group 2: Brand Filter (Dynamically populated via products.js) -->
+            <div class="filter-group">
+              <div class="filter-group-header">Brands</div>
+              <div id="sidebar-brands-list" class="filter-options-list">
+                <!-- Dynamically injected checkboxes -->
+              </div>
+            </div>
+
+            <!-- Group 3: Price Filter -->
+            <div class="filter-group price-filter-wrapper">
+              <div class="filter-group-header">Price Range (₹)</div>
+              <div class="price-input-row">
+                <div class="price-input-group">
+                  <span class="price-input-prefix">₹</span>
+                  <input 
+                    type="number" 
+                    class="price-number-input price-min-input" 
+                    placeholder="Min" 
+                    min="0"
+                    aria-label="Minimum price in Rupees"
+                  >
+                </div>
+                <span style="color: var(--color-border);">&ndash;</span>
+                <div class="price-input-group">
+                  <span class="price-input-prefix">₹</span>
+                  <input 
+                    type="number" 
+                    class="price-number-input price-max-input" 
+                    placeholder="Max" 
+                    min="0"
+                    aria-label="Maximum price in Rupees"
+                  >
+                </div>
+                <button type="button" class="btn-price-apply" aria-label="Apply price filter">
+                  Go
+                </button>
+              </div>
+
+              <!-- Quick Range Pills -->
+              <div class="price-range-pills">
+                <button type="button" class="price-pill-btn" data-min="0" data-max="5000">
+                  Under ₹5k
+                </button>
+                <button type="button" class="price-pill-btn" data-min="5000" data-max="10000">
+                  ₹5k–₹10k
+                </button>
+                <button type="button" class="price-pill-btn" data-min="10000" data-max="20000">
+                  ₹10k–₹20k
+                </button>
+                <button type="button" class="price-pill-btn" data-min="20000" data-max="">
+                  ₹20k+
+                </button>
+              </div>
+            </div>
+
+            <!-- Group 4: Gender Filter (Watch Specific) -->
+            <div class="filter-group">
+              <div class="filter-group-header">Gender</div>
+              <div class="filter-options-list">
+                <label class="filter-checkbox-label">
+                  <span class="filter-checkbox-left">
+                    <input type="radio" name="gender-filter" value="all" checked>
+                    <span>All</span>
+                  </span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <span class="filter-checkbox-left">
+                    <input type="radio" name="gender-filter" value="Men">
+                    <span>Men</span>
+                  </span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <span class="filter-checkbox-left">
+                    <input type="radio" name="gender-filter" value="Women">
+                    <span>Women</span>
+                  </span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <span class="filter-checkbox-left">
+                    <input type="radio" name="gender-filter" value="Unisex">
+                    <span>Unisex</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+          </aside>
+
+          <!-- ================================================================
+               RIGHT COLUMN: TOOLBAR & PRODUCT CATALOGUE GRID
+               ================================================================ -->
+          <div class="shop-results-main">
+
+            <!-- Results Toolbar -->
+            <div class="shop-results-toolbar">
+              
+              <!-- Left Toolbar Items: Count & Search -->
+              <div class="toolbar-left">
+                <p id="results-count" class="results-count-text">
+                  Showing <strong>20</strong> of <strong>20</strong> timepieces
+                </p>
+
+                <!-- Search Input -->
+                <div class="catalog-search-box">
+                  <label for="catalog-search" class="visually-hidden">Search watches by model or brand</label>
+                  <i class="fa-solid fa-magnifying-glass catalog-search-icon" aria-hidden="true"></i>
+                  <input 
+                    type="search" 
+                    id="catalog-search" 
+                    class="catalog-search-input" 
+                    placeholder="Search model, brand..."
+                    aria-label="Search watches by name, brand, or feature"
+                    autocomplete="off"
+                  >
+                  <button type="button" id="catalog-search-clear" class="catalog-search-clear" aria-label="Clear search text">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right Toolbar Items: Mobile Filter Trigger, Sort & View Mode -->
+              <div class="toolbar-right">
+                
+                <!-- Mobile Filter Trigger Button -->
+                <button type="button" id="mobile-filter-btn" class="btn btn-outline mobile-filter-btn" aria-label="Open filter options">
+                  <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                  Filters
+                </button>
+
+                <!-- Sort Dropdown -->
+                <div class="sort-selector-group">
+                  <label for="catalog-sort" class="sort-label">Sort:</label>
+                  <select id="catalog-sort" class="sort-select" aria-label="Sort product catalog">
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Active Filter Chips Container -->
+            <div id="active-chips-container" class="active-chips-container" aria-live="polite">
+              <!-- Dynamically injected chips -->
+            </div>
+
+            <!-- Product Cards Grid Container -->
+            <div id="shop-products-container" class="shop-products-grid" aria-live="polite">
+              <!-- Dynamically populated via shop.js -->
+            </div>
+
+            <!-- Empty State Display -->
+            <div id="catalog-empty-state" class="catalog-empty-state">
+              <div class="empty-state-icon">
+                <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
+              </div>
+              <h2 class="empty-state-title">No Timepieces Found</h2>
+              <p class="empty-state-text">
+                No watches or clocks match your selected combination of filters or search keywords. 
+                Try adjusting your price range, choosing another category, or resetting your filters.
+              </p>
+              <button type="button" id="empty-state-clear-btn" class="btn btn-primary">
+                Clear All Filters
+                <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <!-- Demo Data Disclosure Note -->
+            <p class="demo-data-note" style="margin-top: var(--space-8);">
+              * Representative sample catalogue for P. K. Watch Co. Visit our multi-brand showroom in Ludhiana, Punjab for live stock and authorized retail sales.
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       MOBILE FILTER DRAWER (OFF-CANVAS FOR TABLETS & PHONES)
+       ======================================================================== -->
+  <div id="mobile-filter-backdrop" class="mobile-filter-backdrop" aria-hidden="true"></div>
+
+  <aside id="mobile-filter-drawer" class="mobile-filter-drawer" role="dialog" aria-modal="true" aria-label="Filter Products">
+    <div class="mobile-drawer-header">
+      <span class="mobile-drawer-title">
+        <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+        Filter Products
+      </span>
+      <button type="button" id="mobile-drawer-close" class="mobile-drawer-close" aria-label="Close filter drawer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="mobile-drawer-body">
+      
+      <!-- Mobile Category Filter -->
+      <div class="filter-group">
+        <div class="filter-group-header">Category</div>
+        <div class="filter-options-list">
+          <label class="filter-checkbox-label">
+            <span class="filter-checkbox-left">
+              <input type="radio" name="category-filter" value="all" checked>
+              <span>All Timepieces</span>
+            </span>
+          </label>
+          <label class="filter-checkbox-label">
+            <span class="filter-checkbox-left">
+              <input type="radio" name="category-filter" value="mens">
+              <span>Men's Watches</span>
+            </span>
+          </label>
+          <label class="filter-checkbox-label">
+            <span class="filter-checkbox-left">
+              <input type="radio" name="category-filter" value="womens">
+              <span>Women's Watches</span>
+            </span>
+          </label>
+          <label class="filter-checkbox-label">
+            <span class="filter-checkbox-left">
+              <input type="radio" name="category-filter" value="smartwatches">
+              <span>Smartwatches</span>
+            </span>
+          </label>
+          <label class="filter-checkbox-label">
+            <span class="filter-checkbox-left">
+              <input type="radio" name="category-filter" value="clocks">
+              <span>Clocks</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Mobile Brand Filter -->
+      <div class="filter-group">
+        <div class="filter-group-header">Brands</div>
+        <div id="mobile-drawer-brands-list" class="filter-options-list">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Mobile Price Filter -->
+      <div class="filter-group price-filter-wrapper">
+        <div class="filter-group-header">Price Range (₹)</div>
+        <div class="price-input-row">
+          <div class="price-input-group">
+            <span class="price-input-prefix">₹</span>
+            <input 
+              type="number" 
+              class="price-number-input price-min-input" 
+              placeholder="Min" 
+              min="0"
+              aria-label="Minimum price in Rupees"
+            >
+          </div>
+          <span style="color: var(--color-border);">&ndash;</span>
+          <div class="price-input-group">
+            <span class="price-input-prefix">₹</span>
+            <input 
+              type="number" 
+              class="price-number-input price-max-input" 
+              placeholder="Max" 
+              min="0"
+              aria-label="Maximum price in Rupees"
+            >
+          </div>
+          <button type="button" class="btn-price-apply">
+            Go
+          </button>
+        </div>
+
+        <div class="price-range-pills">
+          <button type="button" class="price-pill-btn" data-min="0" data-max="5000">Under ₹5k</button>
+          <button type="button" class="price-pill-btn" data-min="5000" data-max="10000">₹5k–₹10k</button>
+          <button type="button" class="price-pill-btn" data-min="10000" data-max="20000">₹10k–₹20k</button>
+          <button type="button" class="price-pill-btn" data-min="20000" data-max="">₹20k+</button>
+        </div>
+      </div>
+
+      <!-- Mobile Gender Filter -->
+      <div class="filter-group">
+        <div class="filter-group-header">Gender</div>
+        <div class="filter-options-list">
+          <label class="filter-checkbox-label">
+            <span class="filter-checkbox-left">
+              <input type="radio" name="gender-filter" value="all" checked>
+              <span>All</span>
+            </span>
+          </label>
+          <label class="filter-checkbox-label">
+            <span class="filter-checkbox-left">
+              <input type="radio" name="gender-filter" value="Men">
+              <span>Men</span>
+            </span>
+          </label>
+          <label class="filter-checkbox-label">
+            <span class="filter-checkbox-left">
+              <input type="radio" name="gender-filter" value="Women">
+              <span>Women</span>
+            </span>
+          </label>
+          <label class="filter-checkbox-label">
+            <span class="filter-checkbox-left">
+              <input type="radio" name="gender-filter" value="Unisex">
+              <span>Unisex</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mobile-drawer-footer">
+      <button type="button" id="mobile-drawer-clear-btn" class="btn btn-outline">
+        Clear All
+      </button>
+      <button type="button" id="mobile-drawer-apply-btn" class="btn btn-primary">
+        Apply Filters
+      </button>
+    </div>
+  </aside>
+
+  <!-- Mount Point: Shared Footer -->
+  <div id="footer-root"></div>
+
+  <!-- Application Scripts in Exact Loading Order -->
+  <script src="js/storage.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/shop.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

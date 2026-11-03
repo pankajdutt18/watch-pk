@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulated Checkout | P. K. WATCH CO. Ludhiana</title>
+  <meta name="description" content="Simulated checkout demonstration for P. K. WATCH CO., Ludhiana's premier multi-brand luxury watch retailer. Free insured delivery and showroom collection.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo/logo-symbol.svg">
+
+  <!-- Google Fonts Preconnect & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Shared & Page Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+  <!-- Accessible Skip Navigation Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Dynamic Announcement Bar Mount Point -->
+  <div id="announcement-root"></div>
+
+  <!-- Dynamic Header & Navigation Mount Point -->
+  <div id="header-root"></div>
+
+  <!-- Main Checkout Content -->
+  <main id="main-content" class="checkout-page">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="checkout-breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="separator" aria-hidden="true">/</span>
+        <a href="cart.html">Shopping Bag</a>
+        <span class="separator" aria-hidden="true">/</span>
+        <span class="current" aria-current="page">Simulated Checkout</span>
+      </nav>
+
+      <!-- Multi-Step Progress Bar -->
+      <div class="checkout-stepper" aria-label="Checkout Progress">
+        <a href="cart.html" class="step-item completed" title="Return to Shopping Bag">
+          <span class="step-badge"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
+          <span class="step-label">1. Shopping Bag</span>
+        </a>
+        <div class="step-divider completed" aria-hidden="true"></div>
+        <div class="step-item active" aria-current="step">
+          <span class="step-badge">2</span>
+          <span class="step-label">2. Details &amp; Shipping</span>
+        </div>
+        <div class="step-divider" aria-hidden="true"></div>
+        <div class="step-item" aria-disabled="true">
+          <span class="step-badge">3</span>
+          <span class="step-label">3. Confirmation</span>
+        </div>
+      </div>
+
+      <!-- Prominent Academic Demonstration Notice Banner -->
+      <aside class="demo-alert-banner" role="alert" aria-label="Simulated Checkout Notice">
+        <i class="fa-solid fa-triangle-exclamation demo-alert-icon" aria-hidden="true"></i>
+        <div class="demo-alert-content">
+          <h2 class="demo-alert-title">Academic &amp; Portfolio Demonstration Only</h2>
+          <p class="demo-alert-text">
+            This checkout is a <strong>front-end academic demonstration</strong> for <strong>P. K. WATCH CO.</strong>, an authorized multi-brand watch retailer located at Fountain Chowk, Ludhiana, Punjab. <strong>No real financial transaction will occur, no sensitive card or banking credentials are requested, and no actual product will be dispatched.</strong> Submitting this form generates a simulated order confirmation record stored solely in your local browser storage for evaluation purposes.
+          </p>
+        </div>
+      </aside>
+
+      <!-- Empty Cart Fallback State (Shown dynamically if cart has 0 items) -->
+      <div id="checkout-empty-container" class="checkout-empty-state" style="display: none;">
+        <div class="empty-state-icon" aria-hidden="true">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <h2 class="empty-state-title">Your Shopping Bag is Currently Empty</h2>
+        <p class="empty-state-text">
+          There are no timepieces in your bag to checkout. Please explore our curated multi-brand watch catalogue and add your desired models before placing an order.
+        </p>
+        <a href="shop.html" class="btn btn-primary">
+          <i class="fa-solid fa-compass" aria-hidden="true"></i> Explore Watch Catalogue
+        </a>
+      </div>
+
+      <!-- Active Checkout Grid (Shown dynamically if cart has items) -->
+      <div id="checkout-content-container" class="checkout-grid">
+        
+        <!-- Main Column: Customer Form & Payment Method -->
+        <div class="checkout-main">
+          <form id="checkout-form" novalidate>
+            
+            <!-- Section 1: Customer Information -->
+            <div class="checkout-card">
+              <div class="checkout-section-header">
+                <span class="section-number" aria-hidden="true">1</span>
+                <h2 class="section-title">Delivery &amp; Customer Information</h2>
+                <span class="section-subtitle"><span class="required-star">*</span> Required fields</span>
+              </div>
+
+              <!-- Full Name & Email -->
+              <div class="form-row-2col">
+                <div class="form-group">
+                  <label for="checkout-name" class="form-label">Full Name <span class="required-star">*</span></label>
+                  <input 
+                    type="text" 
+                    id="checkout-name" 
+                    name="name" 
+                    class="form-input" 
+                    placeholder="e.g. Jaswinder Singh" 
+                    required 
+                    autocomplete="name"
+                  >
+                  <div id="checkout-name-error" class="field-error-msg" role="alert"></div>
+                </div>
+
+                <div class="form-group">
+                  <label for="checkout-email" class="form-label">Email Address <span class="required-star">*</span></label>
+                  <input 
+                    type="email" 
+                    id="checkout-email" 
+                    name="email" 
+                    class="form-input" 
+                    placeholder="e.g. jaswinder@example.com" 
+                    required 
+                    autocomplete="email"
+                  >
+                  <div id="checkout-email-error" class="field-error-msg" role="alert"></div>
+                </div>
+              </div>
+
+              <!-- Phone & PIN Code -->
+              <div class="form-row-2col">
+                <div class="form-group">
+                  <label for="checkout-phone" class="form-label">Mobile Phone Number <span class="required-star">*</span></label>
+                  <input 
+                    type="tel" 
+                    id="checkout-phone" 
+                    name="phone" 
+                    class="form-input" 
+                    placeholder="e.g. 98141 12345 (10-digit Indian Mobile)" 
+                    required 
+                    autocomplete="tel"
+                  >
+                  <span class="form-hint">Used for order delivery and showroom notifications</span>
+                  <div id="checkout-phone-error" class="field-error-msg" role="alert"></div>
+                </div>
+
+                <div class="form-group">
+                  <label for="checkout-pincode" class="form-label">PIN Code <span class="required-star">*</span></label>
+                  <input 
+                    type="text" 
+                    id="checkout-pincode" 
+                    name="pincode" 
+                    class="form-input" 
+                    placeholder="e.g. 141001" 
+                    maxlength="6"
+                    required 
+                    autocomplete="postal-code"
+                  >
+                  <span class="form-hint">6-digit Indian Postal Code</span>
+                  <div id="checkout-pincode-error" class="field-error-msg" role="alert"></div>
+                </div>
+              </div>
+
+              <!-- Street Address Line 1 -->
+              <div class="form-group">
+                <label for="checkout-address1" class="form-label">Street Address / House No. / Building <span class="required-star">*</span></label>
+                <input 
+                  type="text" 
+                  id="checkout-address1" 
+                  name="address1" 
+                  class="form-input" 
+                  placeholder="e.g. House No. 42, Mall Road, Near Fountain Chowk" 
+                  required 
+                  autocomplete="address-line1"
+                >
+                <div id="checkout-address1-error" class="field-error-msg" role="alert"></div>
+              </div>
+
+              <!-- Street Address Line 2 (Optional) -->
+              <div class="form-group">
+                <label for="checkout-address2" class="form-label">Apartment / Suite / Area (Optional)</label>
+                <input 
+                  type="text" 
+                  id="checkout-address2" 
+                  name="address2" 
+                  class="form-input" 
+                  placeholder="e.g. Civil Lines, Phase 1" 
+                  autocomplete="address-line2"
+                >
+              </div>
+
+              <!-- City, State & Landmark -->
+              <div class="form-row-3col">
+                <div class="form-group">
+                  <label for="checkout-city" class="form-label">City <span class="required-star">*</span></label>
+                  <input 
+                    type="text" 
+                    id="checkout-city" 
+                    name="city" 
+                    class="form-input" 
+                    value="Ludhiana" 
+                    required 
+                    autocomplete="address-level2"
+                  >
+                  <div id="checkout-city-error" class="field-error-msg" role="alert"></div>
+                </div>
+
+                <div class="form-group">
+                  <label for="checkout-state" class="form-label">State <span class="required-star">*</span></label>
+                  <select id="checkout-state" name="state" class="form-select" required autocomplete="address-level1">
+                    <option value="Punjab" selected>Punjab</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Delhi">Delhi NCR</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="West Bengal">West Bengal</option>
+                    <option value="Other">Other State / UT</option>
+                  </select>
+                  <div id="checkout-state-error" class="field-error-msg" role="alert"></div>
+                </div>
+
+                <div class="form-group">
+                  <label for="checkout-landmark" class="form-label">Landmark (Optional)</label>
+                  <input 
+                    type="text" 
+                    id="checkout-landmark" 
+                    name="landmark" 
+                    class="form-input" 
+                    placeholder="e.g. Near Ghumar Mandi"
+                  >
+                </div>
+              </div>
+
+              <!-- Special Showroom / Delivery Instructions -->
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="checkout-notes" class="form-label">Order Notes / Showroom Pickup Preferences (Optional)</label>
+                <textarea 
+                  id="checkout-notes" 
+                  name="notes" 
+                  class="form-textarea" 
+                  placeholder="e.g. Please keep ready for personal pickup at your Fountain Chowk showroom on Saturday, or deliver with gift wrapping."
+                ></textarea>
+              </div>
+
+            </div>
+
+            <!-- Section 2: Simulated Payment Selection -->
+            <div class="checkout-card">
+              <div class="checkout-section-header">
+                <span class="section-number" aria-hidden="true">2</span>
+                <h2 class="section-title">Select Simulated Payment Method</h2>
+              </div>
+
+              <div class="payment-security-notice" style="margin-bottom: var(--space-4);">
+                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                <span><strong>Security Guarantee:</strong> This is a simulation. For your personal security, we <em>never</em> ask for credit/debit card numbers, CVV codes, UPI PINs, or bank passwords.</span>
+              </div>
+
+              <!-- Payment Method Radios -->
+              <div class="payment-methods-list" role="radiogroup" aria-label="Simulated Payment Methods">
+                
+                <!-- Option 1: Cash/Card on Delivery or Showroom Pickup (Default) -->
+                <label class="payment-option-card selected" for="payment-cod">
+                  <input 
+                    type="radio" 
+                    id="payment-cod" 
+                    name="demo_payment_method" 
+                    value="cod" 
+                    class="payment-radio" 
+                    checked
+                  >
+                  <div class="payment-option-body">
+                    <div class="payment-title-row">
+                      <span class="payment-option-title">Demo: Pay on Delivery / Showroom Collection</span>
+                      <span class="payment-badge">Recommended</span>
+                    </div>
+                    <p class="payment-option-desc">
+                      Pay in cash or card upon personal collection at our Ludhiana showroom or upon hand-delivery. No upfront payment required.
+                    </p>
+                  </div>
+                </label>
+
+                <!-- Option 2: UPI Payment Simulation -->
+                <label class="payment-option-card" for="payment-upi">
+                  <input 
+                    type="radio" 
+                    id="payment-upi" 
+                    name="demo_payment_method" 
+                    value="upi_sim" 
+                    class="payment-radio"
+                  >
+                  <div class="payment-option-body">
+                    <div class="payment-title-row">
+                      <span class="payment-option-title">Demo: UPI Simulation (GPay / PhonePe / Paytm)</span>
+                      <span class="payment-badge">Simulated</span>
+                    </div>
+                    <p class="payment-option-desc">
+                      Simulated instant UPI transfer demonstration. No UPI ID, QR code scan, or UPI PIN requested.
+                    </p>
+                  </div>
+                </label>
+
+                <!-- Option 3: Card Payment Simulation -->
+                <label class="payment-option-card" for="payment-card">
+                  <input 
+                    type="radio" 
+                    id="payment-card" 
+                    name="demo_payment_method" 
+                    value="card_sim" 
+                    class="payment-radio"
+                  >
+                  <div class="payment-option-body">
+                    <div class="payment-title-row">
+                      <span class="payment-option-title">Demo: Credit / Debit Card Simulation</span>
+                      <span class="payment-badge">Simulated</span>
+                    </div>
+                    <p class="payment-option-desc">
+                      Simulated card processing simulation. Pure prototype demonstration without financial exchange.
+                    </p>
+                  </div>
+                </label>
+
+              </div>
+            </div>
+
+            <!-- Section 3: Place Order Actions -->
+            <div class="checkout-actions-card">
+              <p class="terms-agreement">
+                By clicking &ldquo;Complete Simulated Order&rdquo;, you confirm that you understand this is an academic digital showcase for P. K. WATCH CO. and that no financial transaction will take place.
+              </p>
+              
+              <button type="submit" id="btn-submit-order" class="btn btn-primary btn-submit-order">
+                <span class="btn-text">
+                  <i class="fa-solid fa-lock" aria-hidden="true"></i> Complete Simulated Order
+                </span>
+                <span class="btn-spinner" aria-hidden="true" style="display: none;">
+                  <i class="fa-solid fa-circle-notch fa-spin"></i> Processing Demonstration...
+                </span>
+              </button>
+
+              <p class="submit-reassurance-note">
+                <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Instant order reference generated and stored in browser memory.
+              </p>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Right Column: Sticky Order Summary Sidebar -->
+        <aside class="checkout-sidebar" aria-label="Order Summary Sidebar">
+          <div class="order-summary-box">
+            
+            <div class="summary-header">
+              <h2 class="summary-title">Order Summary <span id="summary-count"></span></h2>
+              <a href="cart.html" class="summary-edit-link" title="Modify items in shopping bag">
+                <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Edit Bag
+              </a>
+            </div>
+
+            <!-- Scrollable list of items -->
+            <div id="summary-items-list" class="summary-items-list" aria-label="Selected watches in order">
+              <!-- Dynamically populated by checkout.js -->
+            </div>
+
+            <!-- Cost Calculations -->
+            <div class="summary-totals-block">
+              <div class="summary-calc-row">
+                <span>Items Subtotal</span>
+                <span id="summary-subtotal" style="font-weight: var(--fw-semibold); color: var(--color-dark);">₹0</span>
+              </div>
+              <div class="summary-calc-row free-badge">
+                <span>Insured Showroom Delivery</span>
+                <span class="calc-value">FREE</span>
+              </div>
+              <div class="summary-calc-row">
+                <span>Estimated Taxes (GST 18%)</span>
+                <span>Included</span>
+              </div>
+
+              <div class="summary-divider"></div>
+
+              <div class="summary-grand-total">
+                <span class="grand-total-label">Grand Total</span>
+                <span id="summary-total" class="grand-total-value">₹0</span>
+              </div>
+            </div>
+
+            <!-- Physical Showroom Reassurances -->
+            <div class="summary-reassurances">
+              <div class="reassurance-point">
+                <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+                <span>100% Genuine Certified Watches</span>
+              </div>
+              <div class="reassurance-point">
+                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                <span>Official Brand Manufacturer Warranty</span>
+              </div>
+              <div class="reassurance-point">
+                <i class="fa-solid fa-shop" aria-hidden="true"></i>
+                <span>Showroom Collection in Fountain Chowk</span>
+              </div>
+              <div class="reassurance-point">
+                <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
+                <span>Over 3 Decades of Retail Trust in Punjab</span>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Dynamic Footer Mount Point -->
+  <div id="footer-root"></div>
+
+  <!-- Shared & Controller JavaScript -->
+  <script src="js/storage.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+

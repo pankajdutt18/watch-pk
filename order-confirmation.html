@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation | P. K. WATCH CO. Ludhiana</title>
+  <meta name="description" content="Simulated order confirmation for P. K. WATCH CO., Ludhiana's premier multi-brand luxury watch showroom.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo/logo-symbol.svg">
+
+  <!-- Google Fonts Preconnect & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Shared & Page Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/order-confirmation.css">
+</head>
+<body>
+  <!-- Accessible Skip Navigation Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Dynamic Announcement Bar Mount Point -->
+  <div id="announcement-root"></div>
+
+  <!-- Dynamic Header & Navigation Mount Point -->
+  <div id="header-root"></div>
+
+  <!-- Main Order Confirmation Content -->
+  <main id="main-content" class="confirmation-page">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="confirmation-breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="separator" aria-hidden="true">/</span>
+        <a href="cart.html">Shopping Bag</a>
+        <span class="separator" aria-hidden="true">/</span>
+        <span class="current" aria-current="page">Order Confirmation</span>
+      </nav>
+
+      <!-- 1. SUCCESS VIEW (Populated if order found) -->
+      <div id="order-success-view">
+        
+        <!-- Hero Header -->
+        <header class="confirmation-hero">
+          <div class="confirmation-check-badge" aria-hidden="true">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h1 class="confirmation-title">Simulated Order Confirmed!</h1>
+          <p class="confirmation-subtitle">
+            Thank you for exploring our digital showroom. Your simulated order details have been recorded below.
+          </p>
+        </header>
+
+        <!-- Order Reference Card -->
+        <section class="order-ref-card" aria-label="Order Reference and Status">
+          <div class="order-ref-group">
+            <span class="order-ref-label">Simulated Order Reference</span>
+            <div class="order-ref-code-wrapper">
+              <span id="order-ref-display" class="order-ref-code">PK-DEMO-2026-XXXXXX</span>
+              <button 
+                type="button" 
+                id="btn-copy-ref" 
+                class="btn-copy-ref" 
+                title="Copy order reference to clipboard"
+                aria-label="Copy order reference"
+              >
+                <i class="fa-regular fa-copy" aria-hidden="true"></i> Copy
+              </button>
+            </div>
+          </div>
+
+          <div class="order-meta-info">
+            <div class="order-meta-item">
+              <span class="order-meta-label">Order Date</span>
+              <span id="order-date-display" class="order-meta-value">—</span>
+            </div>
+
+            <div class="order-meta-item">
+              <span class="order-meta-label">Expected Delivery</span>
+              <span id="order-meta-expected-delivery" class="order-meta-value">—</span>
+            </div>
+
+            <div class="order-meta-item">
+              <span class="order-meta-label">Payment Mode</span>
+              <span id="order-payment-method-display" class="order-meta-value">—</span>
+            </div>
+
+            <div class="order-meta-item">
+              <span class="order-meta-label">Order Status</span>
+              <span id="order-status-pill-display" class="order-status-pill">Order Placed</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Two-Column Details Grid -->
+        <div class="confirmation-details-grid">
+          
+          <!-- Column 1: Customer & Delivery Details -->
+          <article class="info-card">
+            <div class="info-card-header">
+              <i class="fa-solid fa-truck-fast" aria-hidden="true"></i>
+              <h2 class="info-card-title">Delivery &amp; Customer Information</h2>
+            </div>
+            
+            <div class="info-details-list">
+              <div class="info-detail-row">
+                <span class="info-detail-label">Recipient Name:</span>
+                <span id="customer-name-display" class="info-detail-val">—</span>
+              </div>
+              <div class="info-detail-row">
+                <span class="info-detail-label">Email Address:</span>
+                <span id="customer-email-display" class="info-detail-val">—</span>
+              </div>
+              <div class="info-detail-row">
+                <span class="info-detail-label">Phone Contact:</span>
+                <span id="customer-phone-display" class="info-detail-val">—</span>
+              </div>
+              <div class="info-detail-row">
+                <span class="info-detail-label">Delivery Address:</span>
+                <span id="customer-address-display" class="info-detail-address">—</span>
+              </div>
+              <div id="customer-notes-row" class="info-detail-row" style="display: none;">
+                <span class="info-detail-label">Order Notes:</span>
+                <span id="customer-notes-display" class="info-detail-val">—</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Column 2: Showroom Collection & Support -->
+          <article class="info-card">
+            <div class="info-card-header">
+              <i class="fa-solid fa-shop" aria-hidden="true"></i>
+              <h2 class="info-card-title">Physical Showroom Collection</h2>
+            </div>
+            
+            <div class="info-details-list">
+              <div class="info-detail-row">
+                <span class="info-detail-label">Store Location:</span>
+                <span class="info-detail-val">P. K. WATCH CO., Fountain Chowk, Ludhiana, Punjab</span>
+              </div>
+              <div class="info-detail-row">
+                <span class="info-detail-label">Postal Code:</span>
+                <span class="info-detail-val">141001</span>
+              </div>
+              <div class="info-detail-row">
+                <span class="info-detail-label">Operating Hours:</span>
+                <span class="info-detail-val">Mon &ndash; Sat: 10:30 AM &ndash; 8:30 PM (Sun Closed)</span>
+              </div>
+              <div class="info-detail-row">
+                <span class="info-detail-label">Showroom Helpline:</span>
+                <span class="info-detail-val">+91 98141 12345</span>
+              </div>
+              <div class="info-detail-row">
+                <span class="info-detail-label">Complimentary:</span>
+                <span class="info-detail-val">Free custom bracelet sizing &amp; official warranty stamping</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Itemized Order Items Table Card -->
+        <section class="confirmation-items-card" aria-label="Purchased Timepieces">
+          <div class="items-card-header">
+            <h2 class="items-card-title">Purchased Timepieces <span id="order-items-count-badge" class="items-count-badge"></span></h2>
+          </div>
+
+          <div class="items-table-wrapper">
+            <table class="confirmation-table">
+              <thead>
+                <tr>
+                  <th scope="col" style="min-width: 220px;">Timepiece</th>
+                  <th scope="col" style="text-align: center; width: 90px;">Quantity</th>
+                  <th scope="col" style="text-align: right; width: 140px;">Unit Price</th>
+                  <th scope="col" style="text-align: right; width: 140px;">Line Total</th>
+                </tr>
+              </thead>
+              <tbody id="order-items-tbody">
+                <!-- Dynamically injected by order-confirmation.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Totals Summary Block -->
+          <div class="confirmation-totals-summary">
+            <div class="totals-summary-row">
+              <span>Items Subtotal</span>
+              <span id="order-subtotal" style="font-weight: var(--fw-semibold); color: var(--color-dark);">₹0</span>
+            </div>
+            <div class="totals-summary-row free-highlight">
+              <span>Insured Showroom Delivery</span>
+              <span class="value">FREE</span>
+            </div>
+            <div class="totals-summary-row">
+              <span>Estimated Taxes (GST 18%)</span>
+              <span>Included</span>
+            </div>
+            <div class="totals-grand-row">
+              <span class="label">Grand Total</span>
+              <span id="order-grand-total" class="value">₹0</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==============================================================
+             ORDER DELIVERY TRACKING SECTION
+             ============================================================== -->
+        <section class="order-tracker-card" id="order-delivery-tracker" aria-label="Order Delivery Tracking">
+          <div class="tracker-header">
+            <div class="tracker-header-left">
+              <span class="tracker-pre-badge">
+                <i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Insured Showroom Dispatch
+              </span>
+              <h2 class="tracker-heading">Order Delivery Tracking</h2>
+              <p class="tracker-subheading">Track your simulated timepiece shipment from our Fountain Chowk, Ludhiana showroom to your doorstep.</p>
+            </div>
+            <div class="tracker-header-status">
+              <span class="tracker-status-label">Current Delivery Status</span>
+              <span id="tracker-current-status-badge" class="tracker-status-pill">Order Placed</span>
+            </div>
+          </div>
+
+          <!-- Key Delivery Metrics Bar -->
+          <div class="tracker-metrics-grid">
+            <div class="tracker-metric-box">
+              <span class="tracker-metric-icon"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i></span>
+              <div class="tracker-metric-info">
+                <span class="tracker-metric-label">Order Placed Date</span>
+                <span id="tracker-order-date" class="tracker-metric-value">—</span>
+              </div>
+            </div>
+
+            <div class="tracker-metric-box">
+              <span class="tracker-metric-icon"><i class="fa-regular fa-calendar-plus" aria-hidden="true"></i></span>
+              <div class="tracker-metric-info">
+                <span class="tracker-metric-label">Expected Delivery Date</span>
+                <span id="tracker-expected-date" class="tracker-metric-value">—</span>
+              </div>
+            </div>
+
+            <div class="tracker-metric-box">
+              <span class="tracker-metric-icon"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i></span>
+              <div class="tracker-metric-info">
+                <span class="tracker-metric-label">Estimated Delivery</span>
+                <span id="tracker-estimated-timeframe" class="tracker-metric-value">Within 7 Days</span>
+              </div>
+            </div>
+
+            <div class="tracker-metric-box highlight">
+              <span class="tracker-metric-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span>
+              <div class="tracker-metric-info">
+                <span class="tracker-metric-label">Current Status</span>
+                <span id="tracker-status-text" class="tracker-metric-value">Order Placed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Delivered Banner (Shown when delivered, Day 7+) -->
+          <div id="tracker-delivered-banner" class="tracker-delivered-banner" style="display: none;" role="status">
+            <div class="delivered-badge-icon">
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            </div>
+            <div class="delivered-banner-text">
+              <h3 class="delivered-banner-title">Your order has been delivered!</h3>
+              <p class="delivered-banner-desc">
+                Package successfully handed over and signed on <strong id="tracker-delivered-date-display">—</strong>. Thank you for choosing P. K. WATCH CO.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Track -->
+          <div class="tracker-timeline-wrapper">
+            <div class="tracker-timeline-track-bg" aria-hidden="true">
+              <div class="tracker-timeline-track-fill" id="tracker-timeline-fill" style="width: 0%;"></div>
+            </div>
+            <ol class="tracker-timeline" id="tracker-timeline-list">
+              <!-- Dynamically rendered by order-confirmation.js -->
+            </ol>
+          </div>
+
+          <!-- Demonstration Testing & Simulation Controls -->
+          <div class="tracker-simulation-bar" aria-label="Demo Testing Controls">
+            <div class="simulation-bar-header">
+              <span class="simulation-title"><i class="fa-solid fa-flask-vial" aria-hidden="true"></i> Delivery Progress Simulator (Demo Testing)</span>
+            </div>
+            <div class="simulation-pills-list">
+              <button type="button" class="btn-sim-pill" data-days="0">
+                <span class="sim-pill-day">Day 0</span>
+                <span class="sim-pill-name">Placed</span>
+              </button>
+              <button type="button" class="btn-sim-pill" data-days="1">
+                <span class="sim-pill-day">Day 1</span>
+                <span class="sim-pill-name">Confirmed</span>
+              </button>
+              <button type="button" class="btn-sim-pill" data-days="3">
+                <span class="sim-pill-day">Days 2–4</span>
+                <span class="sim-pill-name">Shipped</span>
+              </button>
+              <button type="button" class="btn-sim-pill" data-days="5">
+                <span class="sim-pill-day">Days 5–6</span>
+                <span class="sim-pill-name">Out for Delivery</span>
+              </button>
+              <button type="button" class="btn-sim-pill" data-days="7">
+                <span class="sim-pill-day">Day 7+</span>
+                <span class="sim-pill-name">Delivered</span>
+              </button>
+              <button type="button" class="btn-sim-reset" id="btn-sim-reset" title="Reset to real calendar calculation">
+                <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Real Date
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Actions Toolbar -->
+        <nav class="confirmation-actions" aria-label="Post-Order Actions">
+          <button type="button" id="btn-print-order" class="btn btn-print">
+            <i class="fa-solid fa-print" aria-hidden="true"></i> Print Order Summary
+          </button>
+          
+          <a href="shop.html" class="btn btn-primary">
+            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Continue Browsing Catalogue
+          </a>
+          
+          <a href="location.html" class="btn btn-outline">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Showroom Location &amp; Map
+          </a>
+        </nav>
+
+      </div>
+
+      <!-- 2. ERROR / NOT FOUND VIEW (Shown if invalid or missing reference) -->
+      <div id="order-not-found-view" class="confirmation-error-state" style="display: none;">
+        <div class="error-icon-box" aria-hidden="true">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <h1 class="error-title">Simulated Order Not Found</h1>
+        <p class="error-desc">
+          We could not locate an active demonstration order record matching <strong id="invalid-ref-display"></strong> in your browser's local memory. This may happen if the reference is incomplete or if your browser storage was recently cleared.
+        </p>
+        <div class="error-actions" style="display: flex; justify-content: center; gap: var(--space-3); flex-wrap: wrap;">
+          <a href="shop.html" class="btn btn-primary">
+            <i class="fa-solid fa-compass" aria-hidden="true"></i> Explore Watch Catalogue
+          </a>
+          <a href="index.html" class="btn btn-outline">
+            <i class="fa-solid fa-house" aria-hidden="true"></i> Return to Homepage
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Dynamic Footer Mount Point -->
+  <div id="footer-root"></div>
+
+  <!-- Shared & Controller JavaScript -->
+  <script src="js/storage.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/order-confirmation.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+
